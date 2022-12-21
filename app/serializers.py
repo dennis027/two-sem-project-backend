@@ -51,20 +51,20 @@ class ContactSerializer(serializers.ModelSerializer):
         model = Contact
         fields = ('id','name','email','subject','message')
 
-class PartnerInfoSerializer(serializers.ModelSerializer):
+class DiagnosisInfoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PartnerInfo
+        model = Diagnosis
         fields = ('user','subject','message','date')         
 
-class VolunteerInfoSerializer(serializers.ModelSerializer):
+class QuestionsInfoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = VolunteerInfo
+        model = Questions
         fields = ('user','subject','message','date')                 
 
 
-class AnnouncementSerializer(serializers.ModelSerializer):
+class TestimoniesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Announcement
+        model = Testimonies
         fields = ('user','subject','message','location','date')     
 
 

@@ -54,7 +54,7 @@ class Contact(models.Model):
         return f'{self.user.username}'        
 
 
-class PartnerInfo(models.Model):
+class Diagnosis(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     # name = models.CharField(max_length=60, blank=True)
     subject = models.CharField(max_length=60, blank=True)
@@ -63,14 +63,14 @@ class PartnerInfo(models.Model):
 
 
  
-class VolunteerInfo(models.Model):
+class Questions(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     # name = models.CharField(max_length=60, blank=True)
     subject = models.CharField(max_length=60, blank=True)
     message = models.CharField(max_length=300, blank=True)
     date = models.DateField(null=True) 
   
-class Announcement(models.Model):
+class Testimonies(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     subject = models.CharField(max_length=60, default="Add Subject", blank=True)
     message = models.TextField(max_length=255,blank=True)

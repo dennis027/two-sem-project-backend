@@ -24,7 +24,7 @@ from .serializers import ChangePasswordSerializer
 from rest_framework.permissions import IsAuthenticated  
 from django.shortcuts import render
 from app.forms import ContactMeForm
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import send_mail, BadHeaderError 
 from django.http import HttpResponse
 from django.contrib import messages
 # Register API
@@ -98,24 +98,24 @@ class ContactViewSet(viewsets.ModelViewSet):
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer      
 
-class PartnerViewSet(viewsets.ModelViewSet):
+class DiagnosisViewSet(viewsets.ModelViewSet):
     search_fields = ['user']
     filter_backends = (filters.SearchFilter,)
-    queryset = PartnerInfo.objects.all()
-    serializer_class = PartnerInfoSerializer
+    queryset = Diagnosis.objects.all()
+    serializer_class = DiagnosisInfoSerializer
 
-class VolunteerViewSet(viewsets.ModelViewSet):
+class QuestionsViewSet(viewsets.ModelViewSet):
     search_fields = ['user']
     filter_backends = (filters.SearchFilter,)
-    queryset = VolunteerInfo.objects.all()
-    serializer_class = VolunteerInfoSerializer
+    queryset = Questions.objects.all()
+    serializer_class = QuestionsInfoSerializer
 
 
-class AnnouncementViewSet(viewsets.ModelViewSet):
+class TestimoniesViewSet(viewsets.ModelViewSet):
     search_fields = ['user']
     filter_backends = (filters.SearchFilter,)
-    queryset = Announcement.objects.all()
-    serializer_class = AnnouncementSerializer    
+    queryset = Testimonies.objects.all()
+    serializer_class = TestimoniesSerializer    
 
 
 

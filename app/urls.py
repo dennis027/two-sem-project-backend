@@ -14,9 +14,9 @@ router = DefaultRouter()
 
 router.register('user',UserViewSet,basename='user'),
 router.register('contact',ContactViewSet,basename='contact')
-router.register('partnerInfo',PartnerViewSet,basename='partnerInfo')
-router.register('volunteerInfo',VolunteerViewSet,basename='volunteerInfo')
-router.register('announcement',AnnouncementViewSet,basename='announcement')
+router.register('diagnosisAPI',DiagnosisViewSet,basename='diagnosisAPI')
+router.register('questionsAPI',QuestionsViewSet,basename='questionsAPI')
+router.register('testimoniesAPI',TestimoniesViewSet,basename='testimoniesAPI')
 
 urlpatterns=[
      path('',include(router.urls)),
