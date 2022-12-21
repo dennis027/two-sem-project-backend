@@ -19,7 +19,7 @@ router.register('RecommendationsAPI',RecommendationsViewSet,basename='Recommenda
 router.register('questionsAPI',QuestionsViewSet,basename='questionsAPI')
 router.register('answersAPI',AnswersViewSet,basename='answersAPI')
 router.register('testimoniesAPI',TestimoniesViewSet,basename='testimoniesAPI')
-
+router.register('approveAPI',ApproveViewSet,basename='approveAPI')
 urlpatterns=[
     path('',include(router.urls)),
     path('register/', RegisterAPI.as_view(), name='register'),               

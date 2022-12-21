@@ -128,7 +128,11 @@ class TestimoniesViewSet(viewsets.ModelViewSet):
     queryset = Testimonies.objects.all()
     serializer_class = TestimoniesSerializer    
 
-
+class ApproveViewSet(viewsets.ModelViewSet):
+    search_fields = ['user']
+    filter_backends = (filters.SearchFilter,)
+    queryset = Approve.objects.all()
+    serializer_class = ApproveInfoSerializer
 
 
 def email(request):

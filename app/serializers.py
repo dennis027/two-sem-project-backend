@@ -75,7 +75,10 @@ class TestimoniesSerializer(serializers.ModelSerializer):
         model = Testimonies
         fields = ('id','user','subject','message','location','date')     
 
-
+class ApproveInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Approve
+        fields = ('id','testimony_id','user','approveTF','date')     
 class ChangePasswordSerializer(serializers.Serializer):
     model = User
 
