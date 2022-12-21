@@ -15,19 +15,21 @@ router = DefaultRouter()
 router.register('user',UserViewSet,basename='user'),
 router.register('contact',ContactViewSet,basename='contact')
 router.register('diagnosisAPI',DiagnosisViewSet,basename='diagnosisAPI')
+router.register('RecommendationsAPI',RecommendationsViewSet,basename='RecommendationsAPI')
 router.register('questionsAPI',QuestionsViewSet,basename='questionsAPI')
+router.register('answersAPI',AnswersViewSet,basename='answersAPI')
 router.register('testimoniesAPI',TestimoniesViewSet,basename='testimoniesAPI')
 
 urlpatterns=[
-     path('',include(router.urls)),
+    path('',include(router.urls)),
     path('register/', RegisterAPI.as_view(), name='register'),               
     path('login/', LoginAPI.as_view(), name='login'),
     path('logout/', knox_views.LogoutView.as_view(), name='logout'),
     path('logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
-     path('token/',CustomAuthToken.as_view(),name='token'),
-       path('email',views.email,name='email'),     
-          path('api/change-password/', ChangePasswordView.as_view(), name='change-password'), 
-            path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
+    path('token/',CustomAuthToken.as_view(),name='token'),
+    path('email',views.email,name='email'),     
+    path('api/change-password/', ChangePasswordView.as_view(), name='change-password'), 
+    path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
     path('sendmail/',SendMailView.as_view(),name='sendmail'),
     
 

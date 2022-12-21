@@ -55,22 +55,43 @@ class Contact(models.Model):
 
 
 class Diagnosis(models.Model):
+    id= models.BigAutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     # name = models.CharField(max_length=60, blank=True)
     subject = models.CharField(max_length=60, blank=True)
     message = models.CharField(max_length=300, blank=True)
     date = models.DateField(null=True)
 
+class Recommendations(models.Model):
+    diagnosis_id = models.ForeignKey(Diagnosis , on_delete=models.CASCADE)
+    id= models.BigAutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # name = models.CharField(max_length=60, blank=True)
+    subject = models.CharField(max_length=60, blank=True)
+    message = models.CharField(max_length=300, blank=True)
+    date = models.DateField(null=True)    
+
 
  
 class Questions(models.Model):
+    id= models.BigAutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     # name = models.CharField(max_length=60, blank=True)
     subject = models.CharField(max_length=60, blank=True)
     message = models.CharField(max_length=300, blank=True)
     date = models.DateField(null=True) 
   
+class Answers(models.Model):
+    id= models.BigAutoField(primary_key=True)
+    question_id = models.ForeignKey(Questions , on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # name = models.CharField(max_length=60, blank=True)
+    subject = models.CharField(max_length=60, blank=True)
+    message = models.CharField(max_length=300, blank=True)
+    date = models.DateField(null=True) 
+    
 class Testimonies(models.Model):
+    id= models.BigAutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     subject = models.CharField(max_length=60, default="Add Subject", blank=True)
     message = models.TextField(max_length=255,blank=True)

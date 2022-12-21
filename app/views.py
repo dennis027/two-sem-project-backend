@@ -104,12 +104,23 @@ class DiagnosisViewSet(viewsets.ModelViewSet):
     queryset = Diagnosis.objects.all()
     serializer_class = DiagnosisInfoSerializer
 
+class RecommendationsViewSet(viewsets.ModelViewSet):
+    search_fields = ['user']
+    filter_backends = (filters.SearchFilter,)
+    queryset = Recommendations.objects.all()
+    serializer_class = RecommendationsInfoSerializer
+
 class QuestionsViewSet(viewsets.ModelViewSet):
     search_fields = ['user']
     filter_backends = (filters.SearchFilter,)
     queryset = Questions.objects.all()
     serializer_class = QuestionsInfoSerializer
 
+class AnswersViewSet(viewsets.ModelViewSet):
+    search_fields = ['user']
+    filter_backends = (filters.SearchFilter,)
+    queryset = Answers.objects.all()
+    serializer_class = AnswersInfoSerializer
 
 class TestimoniesViewSet(viewsets.ModelViewSet):
     search_fields = ['user']
