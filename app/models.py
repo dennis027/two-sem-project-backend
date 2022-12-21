@@ -97,9 +97,9 @@ class Testimonies(models.Model):
 
 class Approve(models.Model):
     id= models.BigAutoField(primary_key=True)
-    testimony_id = models.ForeignKey(Testimonies , on_delete=models.CASCADE)
+    testimony_id = models.OneToOneField(Testimonies , on_delete=models.CASCADE ,unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    approveTF = models.CharField(max_length=1, blank=True , unique=True)
+    approveTF = models.CharField(max_length=1, blank=True )
     date = models.DateTimeField(auto_now=True,null=True)
 
 @receiver(reset_password_token_created)
