@@ -64,11 +64,11 @@ class RecommendationsInfoSerializer(serializers.ModelSerializer):
 class QuestionsInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Questions
-        fields = ('id','user','subject','message','date')                 
+        fields = ('id','user','question_subject','question_message','question_date')                 
 class AnswersInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answers
-        fields = ('id','question_id','user','subject','message','date')      
+        fields = ('id','question_id','user','answer_subject','answer_message','answer_date')      
 
 class TestimoniesSerializer(serializers.ModelSerializer):
     class Meta:

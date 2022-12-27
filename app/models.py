@@ -74,17 +74,17 @@ class Recommendations(models.Model):
 class Questions(models.Model):
     id= models.BigAutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    subject = models.CharField(max_length=60, blank=True)
-    message = models.CharField(max_length=300, blank=True)
-    date = models.DateTimeField(auto_now=True,null=True)
+    question_subject = models.CharField(max_length=60, blank=True)
+    question_message = models.CharField(max_length=300, blank=True)
+    question_date = models.DateTimeField(auto_now=True,null=True)
   
 class Answers(models.Model):
     id= models.BigAutoField(primary_key=True)
     question_id = models.ForeignKey(Questions , on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    subject = models.CharField(max_length=60, blank=True)
-    message = models.CharField(max_length=300, blank=True)
-    date = models.DateTimeField(auto_now=True,null=True)
+    answer_subject = models.CharField(max_length=60, blank=True)
+    answer_message = models.CharField(max_length=300, blank=True)
+    answer_date = models.DateTimeField(auto_now=True,null=True)
     
 class Testimonies(models.Model):
     id= models.BigAutoField(primary_key=True)
