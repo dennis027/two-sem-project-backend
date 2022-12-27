@@ -49,7 +49,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
-        fields = ('id','name','email','subject','message')
+        fields = ('id','name','email','subject','message','date')
 
 class DiagnosisInfoSerializer(serializers.ModelSerializer):
     class Meta:

@@ -48,7 +48,7 @@ class Contact(models.Model):
     email = models.CharField(max_length=60, blank=True)
     subject = models.CharField(max_length=60, blank=True)
     message = models.CharField(max_length=300, blank=True)
-    
+    date = models.DateTimeField(auto_now=True,null=True) 
 
     def __str__(self):
         return f'{self.user.username}'        
@@ -59,7 +59,7 @@ class Diagnosis(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     diagnosis_subject = models.CharField(max_length=60, blank=True)
     diagnosis_message = models.CharField(max_length=300, blank=True)
-    diagnosis_date = models.DateField(null=True)
+    diagnosis_date = models.DateTimeField(auto_now=True,null=True) 
 
 class Recommendations(models.Model):
     diagnosis_id = models.ForeignKey(Diagnosis , on_delete=models.CASCADE)
