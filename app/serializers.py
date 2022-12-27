@@ -54,12 +54,12 @@ class ContactSerializer(serializers.ModelSerializer):
 class DiagnosisInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Diagnosis
-        fields = ('id','user','subject','message','date')         
+        fields = ('id','user','diagnosis_subject','diagnosis_message','diagnosis_date')         
 
 class RecommendationsInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recommendations
-        fields = ('id','diagnosis_id','user','subject','message','date')             
+        fields = ('id','diagnosis_id','user','recommendation_subject','recommendation_message','recommendation_date')             
 
 class QuestionsInfoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -73,12 +73,12 @@ class AnswersInfoSerializer(serializers.ModelSerializer):
 class TestimoniesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Testimonies
-        fields = ('id','user','subject','message','location','date')     
+        fields = ('id','user','testimony_subject','testimony_message','testimony_location','testimony_date')     
 
 class ApproveInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Approve
-        fields = ('id','testimony_id','user','approveTF','date')     
+        fields = ('id','testimony_id','user','approveTF','approve_date')     
 class ChangePasswordSerializer(serializers.Serializer):
     model = User
 
