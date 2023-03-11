@@ -96,3 +96,9 @@ class SendEmails(serializers.Serializer):
     emailid = serializers.CharField(required=True)
     subject = serializers.CharField(required=True)
     message = serializers.CharField(required=True)
+
+class EmailSerializer(serializers.Serializer):
+    subject = serializers.CharField(max_length=200)
+    message = serializers.CharField()
+    from_email = serializers.EmailField()
+    recipient_list = serializers.ListField(child=serializers.EmailField())

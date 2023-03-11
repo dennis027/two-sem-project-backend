@@ -225,3 +225,17 @@ class SendMailView(APIView):
                 'data': []
             }
            
+class SendEmailView(APIView):
+    serializer_class = EmailSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            subject = serializer.validated_data['subject']
+            message = serializer.validated_data['message']
+            from_email = serializer.validated_data['from_email']
+            recipient_list = serializer.validated_data['recipient_list']
+            send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+            return Response({'message': 'Email sent successfully'})
+        else:
+            return Response(serializer.errors, status=400)
