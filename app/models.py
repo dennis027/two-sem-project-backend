@@ -44,6 +44,7 @@ class Contact(models.Model):
 class Diagnosis(models.Model):
     id= models.BigAutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    drug = models.CharField(max_length=60 , blank=True)
     diagnosis_subject = models.CharField(max_length=60, blank=True)
     diagnosis_message = models.CharField(max_length=300, blank=True)
     diagnosis_date = models.DateTimeField(auto_now=True,null=True) 
@@ -85,7 +86,7 @@ class Approve(models.Model):
 @receiver(reset_password_token_created)
 def password_reset_token_created(sender, instance, reset_password_token, *args, **kwargs):
 
-    email_plaintext_message = "{}?token={}".format(reverse('password_reset:reset-password-request'), reset_password_token.key)
+    email_plaintext_message ="http://localhost:4200"+ "{}?token={}".format(reverse('password_reset:reset-password-request'), reset_password_token.key)
 
     send_mail(
         # title:

@@ -54,7 +54,7 @@ class ContactSerializer(serializers.ModelSerializer):
 class DiagnosisInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Diagnosis
-        fields = ('id','user','diagnosis_subject','diagnosis_message','diagnosis_date')         
+        fields = ('id','user','drug','diagnosis_subject','diagnosis_message','diagnosis_date')         
 
 class RecommendationsInfoSerializer(serializers.ModelSerializer):
     class Meta:
